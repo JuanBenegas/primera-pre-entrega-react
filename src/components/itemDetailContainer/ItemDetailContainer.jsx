@@ -16,7 +16,7 @@ function ItemDetailContainer() {
     const itemInCart = cart.find((item) => item.index === product.index)
 
     let stockUpdated
-    console.log("Item Detal Container:", itemInCart)
+    console.log("Item Detal Container:", )
     if (itemInCart) stockUpdated = product.stock - itemInCart.count
     else stockUpdated = product.stock
 
