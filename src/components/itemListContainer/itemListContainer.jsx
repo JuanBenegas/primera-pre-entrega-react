@@ -1,16 +1,17 @@
-import { useEffect, useReducer, useState } from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import Item from "../item/item"
-import getItems, { obtenerListadoDeProductos, obtenerUnItem } from "../services/mockAsyncService"
-import CardGenerator from "./cards/CardsGenerator"
+import { exportDataBatch, testApp } from "../../services/firestore"
+import getItems, { obtenerListadoDeProductos } from "../../services/firestore"
+import CardGenerator from "../cards/CardsGenerator"
 import "./itemListContainer.css"
 
 export default function ItemListContainer() {
     const [products, setProducts] = useState([])
-    const [ignored, forceUpdate] = useReducer(x => x + 1, 0)
     
     let { id } = useParams()
-    console.log(id)
+
+    //Aqui para probar firestore
+    
 
     useEffect(() => {
         if (id) {
@@ -18,12 +19,14 @@ export default function ItemListContainer() {
                 setProducts(respuesta)
             })
         } else {
-            getItems().then((respuesta) => {
+            obtenerListadoDeProductos().then((respuesta) => {
                 setProducts(respuesta);
             })
         }
         
-    }, [])
+    }, [id])
+    
+    
     
     // const databaseItems = [
 

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { ButtonChild } from "../button/Button"
 
 function Item({id, title, image, price}){
     const urlDetalle = `/item/${id}`
@@ -10,7 +11,7 @@ function Item({id, title, image, price}){
                         <img src={image} alt="IMAGEN" />
                         <h5>$ {price}</h5>
                         <div className="bottomCard">
-                            <Link to={urlDetalle}><button>Ver Mas</button></Link>
+                            <Link to={urlDetalle}><ButtonChild>Ver Mas</ButtonChild></Link>
                         </div>
                     </div>
                 </div>

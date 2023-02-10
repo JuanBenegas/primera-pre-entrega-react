@@ -1,6 +1,7 @@
 import './navBar.css'
-import CardWidget from './CardWidget'
+import CardWidget from '../cardWidget/CardWidget'
 import { Link } from 'react-router-dom'
+import CartContainer from '../cartContainer/CartContainer'
 
 export default function Navbar() {
     return (
@@ -12,7 +13,7 @@ export default function Navbar() {
                     <Link to="category/ropaMujer"><li>Ropa Mujer</li></Link>
                     <Link to="category/electronica"><li>Electronica</li></Link>
                     <Link to="category/joyeria"><li>Joyeria</li></Link>
-                    <Link to="category/carrito"><li><CardWidget/></li></Link>
+                    <Link to="/cart"><li>🛒</li></Link>
                 </ul>
             </div>
         </div>
