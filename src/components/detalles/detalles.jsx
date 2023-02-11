@@ -6,7 +6,7 @@ function Detalles(){
     return(
         <div>
             <h1>Detalles de tu compra</h1>
-            <p>Gracias por comprar, tu numero de ID es: ${itemid}</p>
+            <p>Gracias por comprar, tu numero de ID es: {itemid}</p>
         </div>
     )
 }
