@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.tabla{
+    display: flex;
+    justify-content: center;
+}
+
+.tabla table{
+    width: 80vw;
+    height: 20vh;
+}
+
+.tabla thead{
+    margin-bottom: 20px;
+    background-color: darkslategray;
+    padding: 20px;
+}
+
+.tabla tr{
+    margin: 20px;
+    background-color: darkcyan;
+}
+
+.tabla td{
+    text-align: center;
+}
+
+h4{
+    text-align: center;
+    margin: 40px;
+}

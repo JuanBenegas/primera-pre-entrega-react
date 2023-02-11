@@ -13,12 +13,15 @@ function ItemDetailContainer() {
 
     const { cart, addItem } = useContext(cartContext)
 
-    const itemInCart = cart.find((item) => item.index === product.index)
+    const itemInCart = cart.find((item) => item.id === product.id)
 
     let stockUpdated
-    console.log("Item Detal Container:", )
-    if (itemInCart) stockUpdated = product.stock - itemInCart.count
-    else stockUpdated = product.stock
+    console.log("Item Detal Container:", itemInCart)
+    if (itemInCart) 
+        stockUpdated = product.rating.count - itemInCart.count
+    else {
+        stockUpdated = product.index
+    }
 
     function handleAddToCart(count){
         setIsInCart(true)

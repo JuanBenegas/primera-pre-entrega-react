@@ -7,6 +7,7 @@ import NoPage from './noPage/NoPage';
 import { exportDataBatch } from './services/firestore';
 import CartContainer from './components/cartContainer/CartContainer';
 import { CartContextProvider } from './storage/cartContext';
+import Detalles from './components/detalles/detalles';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/ropeMujer" element=""/>
           <Route path="/electronica" element=""/>
           <Route path="/joyeria" element=""/>
+          <Route path="/detalle/:itemid" element={<Detalles/>}/>
           <Route path="*" element={<NoPage/>}/>
         </Routes>
       </BrowserRouter>

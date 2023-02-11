@@ -2,6 +2,9 @@ import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { createBuyOrder } from "../../services/firestore"
 import { cartContext } from "../../storage/cartContext"
+import { ButtonChild } from "../button/Button"
+import "./cartContainer.css"
+import CartForm from "./CartForm"
 
 function CartContainer(){
     
@@ -27,7 +30,7 @@ function CartContainer(){
 
         let id = await createBuyOrder(orden)
 
-        navigateTo(`/thank-you/${id}`)
+        navigateTo(`/detalle/${id}`)
     }
 
     if (orderId !== null)
@@ -44,39 +47,37 @@ function CartContainer(){
         <>
             <h1>Tu Carrito</h1>
             
-            <table>
-                <thead>
-                    <tr>
-                        <th>Miniatura</th>
-                        <th>Titulo</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Remover</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {cart.map((item) => (
-                        <tr key={item.id} className="">
-                            <td>
-                                <img height={50} src={item.imgurl} alt={item.title}/>
-                            </td>
-                            <td>{item.title}</td>
-                            <td>$ {item.price}</td>
-                            <td>{item.count}</td>
-                            <td>
-                                {/* <ButtonChild></ButtonChild> */}
-                            </td>
-                            <th>$ ---,--- </th>
+            <div className="tabla">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Miniatura</th>
+                            <th>Titulo</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Remover</th>
+                            <th>Total</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-
-            <div>
-                <h4>El total de tu compra es de $ ---,--- </h4>
+                    </thead>
+                    <tbody>
+                        {cart.map((item) => (
+                            <tr key={item.id} className="">
+                                <td>
+                                    <img height={50} src={item.image} alt={item.title}/>
+                                </td>
+                                <td>{item.title}</td>
+                                <td>$ {item.price}</td>
+                                <td>{item.count}</td>
+                                <td>
+                                    <ButtonChild onClick={item.removeItem}>X</ButtonChild>
+                                </td>
+                                <th>$ {item.price * item.count} </th>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
-            
+            <CartForm onSubmit={handleCheckout}/>
         </>
     )
 }

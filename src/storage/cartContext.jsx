@@ -7,6 +7,7 @@ export function CartContextProvider(props){
 
     function addItem(item){
         const inCart = cart.some((itemInCart) => itemInCart === item.id)
+        console.log(inCart)
 
         if (inCart){
             let newCart = [...cart]
