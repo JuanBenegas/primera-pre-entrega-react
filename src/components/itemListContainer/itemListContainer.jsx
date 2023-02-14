@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { exportDataBatch, testApp } from "../../services/firestore"
+import { exportDataBatch, obtenerProductosId, testApp } from "../../services/firestore"
 import getItems, { obtenerListadoDeProductos } from "../../services/firestore"
 import CardGenerator from "../cards/CardsGenerator"
 import "./itemListContainer.css"
@@ -15,7 +15,7 @@ export default function ItemListContainer() {
 
     useEffect(() => {
         if (id) {
-            obtenerListadoDeProductos(id).then((respuesta) => {
+            obtenerProductosId(id).then((respuesta) => {
                 setProducts(respuesta)
             })
         } else {
@@ -23,7 +23,6 @@ export default function ItemListContainer() {
                 setProducts(respuesta);
             })
         }
-        
     }, [id])
     
     

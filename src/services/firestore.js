@@ -311,13 +311,36 @@ export function obtenerListadoDeProductos() {
     return new Promise((resolve, reject) => {
         const productsCollectionRef = collection(db, "products");
         const q = query(productsCollectionRef, orderBy("index"), limit(10));
-
+        
         getDocs(q).then((querySnapshot) => {
             const dataDocs = querySnapshot.docs.map((doc) => ({
                 ...doc.data(),
                 id: doc.id,
             }));
             resolve(dataDocs);
+            
         });
     });
+}
+
+export function obtenerProductosId(id){
+  return new Promise((resolve, reject) => {
+    const productsFire = collection(db, "products")
+    const q = query(productsFire)
+
+    getDocs(q).then((querySnapshot) => {
+      const dataDocs = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id
+      }))
+      let itemsInCart = dataDocs.filter((item) => item.category === id)
+      resolve(itemsInCart)
+      console.log("DATADOCS3333: ", itemsInCart)
+    })
+  })
+}
+
+export function obtenerCategoria(id){
+  let itemsCart = collection(db, "products")
+  console.log("ITEMS IN CART! ______ ",itemsCart)
 }

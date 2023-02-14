@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getSingleItem } from "../../services/firestore";
+import { getSingleItem, obtenerCategoria } from "../../services/firestore";
 import { obtenerUnItem } from "../../services/mockAsyncService";
 import { cartContext } from "../../storage/cartContext";
 import ItemCount from "../contador/contador";
@@ -29,7 +29,7 @@ function ItemDetailContainer() {
         product.count = count
         addItem(product)
     }
-
+    obtenerCategoria(itemid)
     useEffect(() => {
         getSingleItem(itemid)
             .then((respuesta) => {

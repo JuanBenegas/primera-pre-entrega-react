@@ -17,6 +17,7 @@ export function ButtonChild(props){
     return(
         <button
             onClick={handleClick}
+            className="btn-primary"
         >
             {props.children}
         </button>
