@@ -335,12 +335,8 @@ export function obtenerProductosId(id){
       }))
       let itemsInCart = dataDocs.filter((item) => item.category === id)
       resolve(itemsInCart)
-      console.log("DATADOCS3333: ", itemsInCart)
     })
   })
 }
 
-export function obtenerCategoria(id){
-  let itemsCart = collection(db, "products")
-  console.log("ITEMS IN CART! ______ ",itemsCart)
-}
+

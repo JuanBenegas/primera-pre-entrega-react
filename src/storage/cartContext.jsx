@@ -6,7 +6,7 @@ export function CartContextProvider(props){
     let [cart, setCart] = useState([])
 
     function addItem(item){
-        const inCart = cart.some((itemInCart) => itemInCart === item.id)
+        const inCart = cart.some((itemInCart) => itemInCart.id === item.id)
         console.log(inCart)
 
         if (inCart){

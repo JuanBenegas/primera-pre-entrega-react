@@ -14,14 +14,18 @@ function ItemDetailContainer() {
     const { cart, addItem } = useContext(cartContext)
 
     const itemInCart = cart.find((item) => item.id === product.id)
+    // console.log(cartContext)
 
     let stockUpdated
-    console.log("Item Detal Container:", itemInCart)
+    // console.log("Item Detal Container:", itemInCart)
     if (itemInCart) 
-        stockUpdated = product.rating.count - itemInCart.count
+        {
+            stockUpdated = product.rating.count - itemInCart.rating.count
+        }
     else {
-        stockUpdated = product.index
+        stockUpdated = product.price
     }
+    // console.log(stockUpdated)
 
     function handleAddToCart(count){
         setIsInCart(true)
@@ -29,7 +33,7 @@ function ItemDetailContainer() {
         product.count = count
         addItem(product)
     }
-    obtenerCategoria(itemid)
+    // obtenerCategoria(itemid)
     useEffect(() => {
         getSingleItem(itemid)
             .then((respuesta) => {
