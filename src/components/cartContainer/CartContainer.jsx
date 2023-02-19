@@ -69,7 +69,7 @@ function CartContainer(){
                                 <td>$ {item.price}</td>
                                 <td>{item.count}</td>
                                 <td>
-                                    <ButtonChild onClick={item.removeItem}>X</ButtonChild>
+                                    <ButtonChild onClick={ item.removeItem }>X</ButtonChild>
                                 </td>
                                 <th>$ {item.price * item.count} </th>
                             </tr>

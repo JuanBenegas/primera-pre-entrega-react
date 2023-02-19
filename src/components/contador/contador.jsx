@@ -17,6 +17,10 @@ function ItemCount({ onAddToCart, stock }) {
         }
     }
 
+    function addToCartBtn(count) {
+
+    }
+
     return (
         <div>
             <small>Agregá la cantidad deseada al carrito</small>

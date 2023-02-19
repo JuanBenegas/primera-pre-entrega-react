@@ -28,10 +28,14 @@ function ItemDetailContainer() {
     // console.log(stockUpdated)
 
     function handleAddToCart(count){
-        setIsInCart(true)
+        if (count !== 0){
+            setIsInCart(true)
         alert(`Agregaste ${count} unidades de ${product.title} al carrito`)
         product.count = count
         addItem(product)
+        }else{
+            alert("No puedes agregar 0 unidades")
+        }
     }
     // obtenerCategoria(itemid)
     useEffect(() => {
